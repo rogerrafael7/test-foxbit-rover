@@ -1,0 +1,17 @@
+{
+  "name": "test-foxbit-rover",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^29.1.2",
+    "@types/node": "^18.11.0",
+    "jest": "^29.2.0"
+  }
+}
