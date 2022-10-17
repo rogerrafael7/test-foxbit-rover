@@ -34,7 +34,7 @@ module.exports = class RoverControl {
     if ([...this.roverConfig.instructions].some(instruction => !['L', 'R', 'M'].includes(instruction))) {
       throw new RoverControlException('A configuração de instruções do Rover está inválida, os valores possíveis são L, R ou M', RoverControlExceptionCode.INVALID_INSTRUCTION)
     }
-    if (!['N', 'E', 'S', 'W'].includes(this._currentPosition.facing)) {
+    if (!cardinalPointsHelper.cardinalPoints.includes(this._currentPosition.facing)) {
       throw new RoverControlException('A direção inicial do Rover está inválida', RoverControlExceptionCode.INVALID_FACING)
     }
     if (!this.isInsidePlateau(this._currentPosition)) {
