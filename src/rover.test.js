@@ -43,12 +43,6 @@ describe('Rover', () => {
       const upperRight = [5, 5]
       const rovers = [
         {
-          startX: 1,
-          startY: 2,
-          facing: 'N',
-          instructions: ['L', 'M', 'L', 'M', 'L', 'M', 'L', 'M', 'M']
-        },
-        {
           startX: 3,
           startY: 3,
           facing: 'E',
@@ -59,7 +53,7 @@ describe('Rover', () => {
       expect(true).toBe(false)
     } catch (error) {
       expect(error instanceof RoverControlException).toBe(true)
-      expect(error.code).toBe(RoverControlExceptionCode.INVALID_POSITION)
+      expect(error.code).toBe(RoverControlExceptionCode.ERROR_INSTRUCTION_OUTSIDE_PLATEAU)
     }
   })
   test('Deve criticar se a posição inicial do rover já estiver fora do planalto', () => {
@@ -77,7 +71,7 @@ describe('Rover', () => {
       expect(true).toBe(false)
     } catch (error) {
       expect(error instanceof RoverControlException).toBe(true)
-      expect(error.code).toBe(RoverControlExceptionCode.INVALID_POSITION)
+      expect(error.code).toBe(RoverControlExceptionCode.ERROR_INSTRUCTION_OUTSIDE_PLATEAU)
     }
   })
   test('Deve criticar se não for parametrizado o startX', () => {

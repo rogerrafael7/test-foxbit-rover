@@ -38,7 +38,7 @@ module.exports = class RoverControl {
       throw new RoverControlException('A direção inicial do Rover está inválida', RoverControlExceptionCode.INVALID_FACING)
     }
     if (!this.isInsidePlateau(this._currentPosition)) {
-      throw new RoverControlException('A posição inicial do Rover está fora do planalto', RoverControlExceptionCode.INVALID_POSITION)
+      throw new RoverControlException('A posição inicial do Rover está fora do planalto', RoverControlExceptionCode.ERROR_INSTRUCTION_OUTSIDE_PLATEAU)
     }
   }
 
@@ -77,7 +77,7 @@ module.exports = class RoverControl {
     mapFacing[currentPosition.facing]()
 
     if (!this.isInsidePlateau(currentPosition)) {
-      throw new RoverControlException('Se este movimento for feito o Rover estará fora do planalto', RoverControlExceptionCode.INVALID_POSITION)
+      throw new RoverControlException('Se este movimento for feito o Rover estará fora do planalto', RoverControlExceptionCode.ERROR_INSTRUCTION_OUTSIDE_PLATEAU)
     }
     this._currentPosition = currentPosition
   }
